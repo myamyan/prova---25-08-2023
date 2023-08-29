@@ -1,13 +1,24 @@
-import 'dotenv/config'
-import express from 'express'
-import cors from 'cors'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.scss';
+import CadastroCliente from './pages/App';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import { con } from './repository/connection.js'
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+
+    <BrowserRouter>
+
+      <Routes>
 
 
-const server = express();
-server.use(cors());
-server.use(express.json());
+        <Route path='/' element={<CadastroCliente/>}/>
 
-server.listen(process.env.PORT, () => console.log(`Subiu ${process.env.PORT}`)); 
+      </Routes>
 
+    </BrowserRouter>
+
+  </React.StrictMode>
+);
